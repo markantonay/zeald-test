@@ -11,8 +11,7 @@
  */
 
 
-/* Refactor */
-// Call Require
+// prepare the request & process the arguments
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/classes/Controller.php';
 $database = 'nba2019';
@@ -20,15 +19,6 @@ include(__DIR__ . '/include/utils.php');
 
 use Illuminate\Support;
 
-
-
-//  use Illuminate\Support;
-
-// // prepare the request & process the arguments
-// $database = 'nba2019';
-// include('include/utils.php');
-// require_once('vendor/autoload.php');
-// require_once('classes/Controller.php');
 
 // process the args
 $args = collect($_REQUEST);
