@@ -3,9 +3,10 @@ use Illuminate\Support;  // https://laravel.com/docs/5.8/collections - provides 
 use LSS\Array2Xml;
 
 require_once __DIR__ . '/Exporter.php';
+require_once __DIR__ . '/Reporter.php';
 
 
-class Controller extends Exporter {
+class Controller {
 
     public function __construct($args) {
         $this->args = $args;
@@ -33,6 +34,27 @@ class Controller extends Exporter {
         if (!$data) {
             exit("Error: No data found!");
         }
-        return $exporter->format($data, $format);
+        return format($data, $format);
     }
+
+    public function report($type) 
+    {
+        $data = [];
+        $reporter = new Reporter();
+         switch ($type) {
+            case 'all':
+                $data = $reporter->getTeamCode();
+                break;
+            case '3ptsplayer':
+                $data = $reporter->getBest3ptShooter();
+                break;
+            case '3ptsteam':
+                $data = $reporter->getBest3ptShooterTeam();
+                break;
+        }
+
+        return $data;
+    }
+
+
 }

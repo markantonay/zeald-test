@@ -16,11 +16,9 @@
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/classes/Controller.php';
 $database = 'nba2019';
-include(__DIR__ . '/include/utils.php');
+include(__DIR__ . '/include/utils.php'); 
 
 use Illuminate\Support;
-
-
 
 
 
